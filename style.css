@@ -4,10 +4,263 @@
     box-sizing: border-box;
     font-family: "Rubik", sans-serif;
 }
+body{
+    min-height: 100vh;
+    background-color: hsl(226, 43%, 10%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+main{
+    display: grid;
+    grid-template-areas: 'one' 'two' 'three' 'four' 'five' 'six' 'seven';
+    gap: 24px;
+    width: 100%;
+    margin: 82px 0;
+}
+section{
+    margin: 0 24px;
+    border-radius: 14px;
+}
+.daily{
+    display: none;
+}
+.monthly{
+    display: none;
+}
+.user-details{
+    background-color: hsl(246, 80%, 60%);
+    display: flex;
+    align-items: center;
+    border-radius: 14px;
+    padding: 31px 28px;
+}
+.user-details img{
+    width: 70px;
+    height: 70px;
+    border: 3px solid hsl(0, 0%, 100%);
+    border-radius: 50%;
+}
+.user-details div{
+    margin-left: 18px;
+}
+.user-details p{
+    color: hsl(236, 100%, 87%);
+    font-size: 15px;
+}
+.user-details h1{
+    color: hsl(0, 0%, 100%);
+    font-weight: 300;
+    padding-top: 4px;
+}
+.timeframe{
+    display: flex;
+    justify-content: space-between;
+    color: hsl(235, 45%, 61%);
+    padding: 24px 20px 24px 34px;
+    font-size: 18px;
+}
+#weekly{
+    color: hsl(0, 0%, 100%);
+    padding-left: 12px;
+}
+.user-details-container, .stats-container{
+    background-color: hsl(235, 46%, 20%);
+}
+.image-container{
+    height: 38px;
+    width: 100%;
+    border-radius: 14px 14px 0 0;
+}
+#work-section{
+    background-color: hsl(15, 100%, 70%);
+}
+#play-section{
+    background-color: hsl(195, 74%, 62%);
+}
+#study-section{
+    background-color: hsl(348, 100%, 68%);
+}
+#exercise-section{
+    background-color: hsl(145, 58%, 55%);
+}
+#social-section{
+    background-color: hsl(264, 64%, 52%);
+}
+#self-care-section{
+    background-color: hsl(43, 84%, 65%);
+}
+#work-section .image-container{
+    background-image: url(images/icon-work.svg);
+    background-repeat: no-repeat;
+    background-position: 93% -10px;
+}
+#play-section .image-container{
+    background-image: url(images/icon-play.svg);
+    background-repeat: no-repeat;
+    background-position: 92% -4px;
+}
+#study-section .image-container{
+    background-image: url(images/icon-study.svg);
+    background-repeat: no-repeat;
+    background-position: 93% -6px;
+}
+#exercise-section .image-container{
+    background-image: url(images/icon-exercise.svg);
+    background-repeat: no-repeat;
+    background-position: 93% 0px;
+}
+#social-section .image-container{
+    background-image: url(images/icon-social.svg);
+    background-repeat: no-repeat;
+    background-position: 95% -14px;
+}
+#self-care-section .image-container{
+    background-image: url(images/icon-self-care.svg);
+    background-repeat: no-repeat;
+    background-position: 94% -10px;
+}
+.stats-container{
+    border-radius: 14px;
+    padding: 28px 24px;
+}
+.stats-container h2{
+    color: hsl(0, 0%, 100%);
+    font-weight: 500;
+    font-size: 18px;
+}
+.stats-container div{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.stats-container .hours{
+    color: hsl(0, 0%, 100%);
+    font-size: 32px;
+    font-weight: 300;
+}
+.stats-container .pre-hours{
+    color: hsl(236, 100%, 87%);
+    font-size: 15px;
+}
+.stats{
+    margin-top: 6px;
+}
+
 .attribution{
+    position: absolute;
     font-size: 11px;
     text-align: center;
+    bottom: 10px;
 }
 .attribution a{
     color: hsl(228, 45%, 44%);
+}
+
+@media only screen and (min-width:600px){
+    main{
+        place-content: center;
+        grid-template-areas: 'one one' 'two three' 'four five' 'six seven';
+        margin: 0;
+    }
+    .user-details-container{
+        grid-area: one;
+    }
+    #work-section{
+        grid-area: two;
+    }
+    #play-section{
+        grid-area: three;
+    }
+    #study-section{
+        grid-area: four;
+    }
+    #exercise-section{
+        grid-area: five;
+    }
+    #social-section{
+        grid-area: six;
+    }
+    #self-care-section{
+        grid-area: seven;
+    }
+    section{
+        margin: 0;
+    }
+}
+
+@media only screen and (min-width:1124px){
+    section{
+        width: 255px;
+    }
+    main{
+        grid-template-areas: 'one two three four' 'one five six seven';
+        gap: 30px;
+    }
+    .user-details{
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 34px 30px;
+    }
+    .user-details div{
+        margin: 38px 2px 46px;
+    }
+    .user-details img{
+        width: 84px;
+        height: 84px;
+    }
+    .user-details div h1{
+        font-size: 40px;
+        line-height: 48px;
+        padding-top: 3px;
+    }
+    .timeframe{
+        flex-direction: column;
+        padding-left: 32px;
+        padding-bottom: 22px;
+        padding-top: 26px;
+        justify-content: space-between;
+        height: 158px;
+    }
+    #weekly{
+        padding-left: 0;
+    }
+    .stats{
+        flex-direction: column;
+        height: 112px;
+    }
+    .stats .hours{
+        align-self: flex-start;
+        font-size: 56px;
+        padding-top: 18px;
+        padding-bottom: 8px;
+    }
+    .pre-hours{
+        align-self: flex-start;
+    }
+    .stats-container{
+        padding: 30px 31px;
+    }
+    .image-container{
+        height: 46px;
+    }
+    #work-section .image-container{
+        background-position: 91% -10px;
+    }
+    #play-section .image-container{
+        background-position: 89% -4px;
+    }
+    #study-section .image-container{
+        background-position: 90% -6px;
+    }
+    #exercise-section .image-container{
+        background-position: 90% 0px;
+    }
+    #social-section .image-container{
+        background-position: 93% -14px;
+    }
+    #self-care-section .image-container{
+        background-position: 92% -10px;
+    }
 }
