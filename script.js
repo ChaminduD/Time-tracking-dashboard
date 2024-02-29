@@ -1,9 +1,6 @@
 const dailyStats = document.querySelectorAll(".daily-stats");
 const weeklyStats = document.querySelectorAll(".weekly-stats");
 const monthlyStats = document.querySelectorAll(".monthly-stats");
-const dailyBtn = document.getElementById("daily-btn");
-const weeklyBtn = document.getElementById("weekly-btn");
-const monthlyBtn = document.getElementById("monthly-btn");
 const daily = document.getElementById("daily");
 const weekly = document.getElementById("weekly");
 const monthly = document.getElementById("monthly");
@@ -43,3 +40,57 @@ monthly.addEventListener('click', () => {
         element.style.display = 'none';
     });
 });
+
+
+
+document.addEventListener('DOMContentLoaded', async function() {
+    try{
+        const response = await fetch('data.json');
+        if (!response.ok) {
+            throw new Error('Could not fetch resource');
+        }
+
+        const jsonData = await response.json();
+
+        const weeklyFetch = document.querySelectorAll(".weekly-fetch");
+        const dailyFetch = document.querySelectorAll(".daily-fetch");
+        const monthlyFetch = document.querySelectorAll(".monthly-fetch");
+
+        const weeklyPreFetch = document.querySelectorAll(".weekly-pre-fetch");
+        const dailyPreFetch = document.querySelectorAll(".daily-pre-fetch");
+        const monthlyPreFetch = document.querySelectorAll(".monthly-pre-fetch");
+
+        weeklyFetch.forEach((element, index) => {
+            const hrs = jsonData[index].timeframes.weekly.current;
+            element.textContent  = hrs + "hrs";
+        });
+
+        dailyFetch.forEach((element, index) => {
+            const hrs = jsonData[index].timeframes.daily.current;
+            element.textContent  = hrs + "hrs";
+        });
+
+        monthlyFetch.forEach((element, index) => {
+            const hrs = jsonData[index].timeframes.monthly.current;
+            element.textContent  = hrs + "hrs";
+        });
+
+        weeklyPreFetch.forEach((element, index) => {
+            const hrs = jsonData[index].timeframes.weekly.previous;
+            element.textContent  = "Last Week - " + hrs + "hrs";
+        });
+
+        dailyPreFetch.forEach((element, index) => {
+            const hrs = jsonData[index].timeframes.daily.previous;
+            element.textContent  = "Yesterday - " + hrs + "hrs";
+        });
+
+        monthlyPreFetch.forEach((element, index) => {
+            const hrs = jsonData[index].timeframes.monthly.previous;
+            element.textContent  = "Last Month - " + hrs + "hrs";
+        });
+
+    } catch(error){
+        console.error(error);
+    }
+})

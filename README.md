@@ -80,6 +80,27 @@ daily.addEventListener('click', () => {
         element.style.display = 'none';
     });
 });
+
+document.addEventListener('DOMContentLoaded', async function() {
+    try{
+        const response = await fetch('data.json');
+        if (!response.ok) {
+            throw new Error('Could not fetch resource');
+        }
+
+        const jsonData = await response.json();
+
+        const weeklyFetch = document.querySelectorAll(".weekly-fetch");
+
+        weeklyFetch.forEach((element, index) => {
+            const hrs = jsonData[index].timeframes.weekly.current;
+            element.textContent  = hrs + "hrs";
+        });
+
+    } catch(error){
+        console.error(error);
+    }
+})
 ```
 
 ### Continued development
