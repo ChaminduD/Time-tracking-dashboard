@@ -24,10 +24,10 @@ section{
     margin: 0 24px;
     border-radius: 14px;
 }
-.daily{
+.daily-stats{
     display: none;
 }
-.monthly{
+.monthly-stats{
     display: none;
 }
 .user-details{
@@ -58,12 +58,26 @@ section{
 .timeframe{
     display: flex;
     justify-content: space-between;
-    color: hsl(235, 45%, 61%);
     padding: 24px 20px 24px 34px;
     font-size: 18px;
 }
-#weekly{
+input[type="radio"]{
+    display: none;
+}
+.timeframe span{
+    cursor: pointer;
+    transition: 0.3s;
+}
+input[type="radio"]:checked + span{
     color: hsl(0, 0%, 100%);
+}
+input[type="radio"]:not(:checked) + span{
+    color: hsl(235, 45%, 61%);
+}
+input[type="radio"]:not(:checked) + span:hover{
+    color: hsl(0, 0%, 100%);
+}
+#weekly{
     padding-left: 12px;
 }
 .user-details-container, .stats-container{
@@ -125,6 +139,11 @@ section{
 .stats-container{
     border-radius: 14px;
     padding: 28px 24px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+.stats-container:hover{
+    background-color: hsl(235, 46%, 30%);
 }
 .stats-container h2{
     color: hsl(0, 0%, 100%);
@@ -135,6 +154,12 @@ section{
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+.stats-container div img{
+    cursor: pointer;
+}
+.stats-container div img:hover{
+    filter: brightness(0) invert(100%);
 }
 .stats-container .hours{
     color: hsl(0, 0%, 100%);
