@@ -17,6 +17,7 @@ main{
     grid-template-areas: 'one' 'two' 'three' 'four' 'five' 'six' 'seven';
     gap: 24px;
     width: 100%;
+    max-width: 380px;
     margin: 82px 0;
 }
 section{
@@ -153,16 +154,19 @@ section{
     font-size: 11px;
     text-align: center;
     bottom: 10px;
+    color: hsl(236, 100%, 87%);
 }
 .attribution a{
-    color: hsl(228, 45%, 44%);
+    color: hsl(246, 80%, 60%);
+    text-decoration: none;
+    font-weight: 500;
 }
 
 @media only screen and (min-width:600px){
     main{
         place-content: center;
         grid-template-areas: 'one one' 'two three' 'four five' 'six seven';
-        margin: 0;
+        grid-auto-columns: 255px;
     }
     .user-details-container{
         grid-area: one;
@@ -187,6 +191,49 @@ section{
     }
     section{
         margin: 0;
+    }
+    .timeframe{
+        padding: 24px 80px 24px 94px;
+    }
+    #weekly{
+        padding-left: 12px;
+    }
+    .stats{
+        flex-direction: column;
+        height: 112px;
+    }
+    .stats .hours{
+        align-self: flex-start;
+        font-size: 56px;
+        padding-top: 18px;
+        padding-bottom: 8px;
+    }
+    .pre-hours{
+        align-self: flex-start;
+    }
+    .stats-container{
+        padding: 30px 31px;
+    }
+    .image-container{
+        height: 46px;
+    }
+    #work-section .image-container{
+        background-position: 91% -10px;
+    }
+    #play-section .image-container{
+        background-position: 89% -4px;
+    }
+    #study-section .image-container{
+        background-position: 90% -6px;
+    }
+    #exercise-section .image-container{
+        background-position: 90% 0px;
+    }
+    #social-section .image-container{
+        background-position: 93% -14px;
+    }
+    #self-care-section .image-container{
+        background-position: 92% -10px;
     }
 }
 
@@ -225,42 +272,5 @@ section{
     }
     #weekly{
         padding-left: 0;
-    }
-    .stats{
-        flex-direction: column;
-        height: 112px;
-    }
-    .stats .hours{
-        align-self: flex-start;
-        font-size: 56px;
-        padding-top: 18px;
-        padding-bottom: 8px;
-    }
-    .pre-hours{
-        align-self: flex-start;
-    }
-    .stats-container{
-        padding: 30px 31px;
-    }
-    .image-container{
-        height: 46px;
-    }
-    #work-section .image-container{
-        background-position: 91% -10px;
-    }
-    #play-section .image-container{
-        background-position: 89% -4px;
-    }
-    #study-section .image-container{
-        background-position: 90% -6px;
-    }
-    #exercise-section .image-container{
-        background-position: 90% 0px;
-    }
-    #social-section .image-container{
-        background-position: 93% -14px;
-    }
-    #self-care-section .image-container{
-        background-position: 92% -10px;
     }
 }
