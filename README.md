@@ -30,8 +30,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Solution URL here]()
-- Live Site URL: [Live site URL here]()
+- Solution URL: [Solution URL here](https://www.frontendmentor.io/solutions/responsive-time-tracking-dashboard-using-css-grid-B1UmD4JaRq)
+- Live Site URL: [Live site URL here](https://chamindud.github.io/Time-tracking-dashboard/)
 
 ## My process
 
